@@ -1,5 +1,60 @@
-<h1>Test</h1>
-<h1><%=mesdata.title%></h1>
-<p><%=mesdata.content%></p>
-<p><%=user.email%></p>
+<div class="menu">
+  <ul id="menu_horizontal">
+    <li><a href="/moncompte" target="_blank">Mon compte</a></li>
+    <li><a href="/login" target="_blank">Se connecter</a></li>
+    <li><a href="/signup" target="_blank">Créer un compte</a></li>
+  </ul>
+</div>
 
+<center>
+  <h1><%= mesdata.title %></h1>
+  <p><%= mesdata.content %></p>
+  <div class="info">
+    <p>Votre email : <%= user.email %></p>
+    <p>Votre Nom : <%= user.nom %></p>
+    <p>Votre prenom : <%= user.prenom %></p>
+
+    <br/>
+
+    <% if (user.addresses.length == null){ %>
+    <p>Il n'y a pas d'adresse</p>
+    <% } else { %>
+    <p>Votre Adresse :
+    <p>Ligne 1 : <%= user.addresses[0].ligne1 %></p>
+    <p>Ligne 2 : <%= user.addresses[0].ligne2 %></p>
+    <p>Ville : <%= user.addresses[0].ville %></p>
+    <p>CodePostal : <%= user.addresses[0].codePostal %></p>
+    <% } %>
+
+  </div>
+</center>
+
+<br/><br/>
+
+<div class=modif>
+  <h1>Modifier vos informations :</h1>
+  <form method="POST" action="/user/<%= user.id %>">
+    <p>Nom : </p><input type="text" name="nom">
+    <p>prenom : </p><input type="text" name="prenom"><br/><br/>
+    <input class="submit" type="submit" value="submit">
+</div>
+
+<div class=modif>
+  <h1>Modifier votre adresse :</h1>
+  <form method="POST" action="/address/<%= user.addresses[0].id %>">
+    <p>Ligne1 : </p><input type="text" name="ligne1">
+    <p>Ligne2 : </p><input type="text" name="ligne2"><br/><br/>
+    <p>Code Postal : </p><input type="text" name="codePostal"><br/><br/>
+    <p>Ville : </p><input type="text" name="ville"><br/><br/>
+    <p>Pays : </p><input type="text" name="pays"><br/><br/>
+    <input class="submit" type="submit" value="submit">
+  </form>
+</div>
+
+<div class=modif>
+  <h1>Modifier votre image :</h1>
+  <form method="POST" action="/user/upload/<%= user.id %>">
+    <input class="file" type="file" value="selectFile">
+    <input class="submit" type="submit" value="submit">
+  </form>
+</div>

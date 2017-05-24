@@ -1,0 +1,1 @@
+<?= '{"result":"'.$_GET['variable'].'"}'; ?>

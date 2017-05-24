@@ -1,0 +1,45 @@
+
+body {
+  background-color: #1C6EA4;
+}
+
+p {
+  color: white;
+  background-color: #1C6EA5;
+}
+
+ol {
+  color: #FAE6FC;
+}
+
+.pair {
+  background-color: #A4124B;
+}
+
+#h1container {
+  background: #3F56FC;
+}
+
+#h2container {
+  background: #3F56FD;
+}
+
+h1 {
+  background: #FCE5EB;
+}
+
+h2 {
+  background: #FCECE0;
+}
+
+a {
+  background: #D6FCF0;
+}
+
+span {
+  background: #D1F0FC;
+}
+
+.impair {
+  background-color: #A4560F;
+}
